@@ -9,6 +9,7 @@ export default function Weather(prop) {
   function displayWeather(response) {
     setLoad(true);
     setWeather({
+      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -29,14 +30,36 @@ export default function Weather(prop) {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Type for a city..."
-        onChange={updateCity}
-      />
-      <input type="submit" value="Search city" />
-    </form>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <form className="d-flex" onSubmit={handleSubmit}>
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search for a city"
+            autoComplete="off"
+            autoFocus="off"
+            id="city-input"
+            onChange={updateCity}
+          />
+          <button
+            className="btn btn-outline-dark"
+            type="submit"
+            id="search-button"
+          >
+            {" "}
+            Search{" "}
+          </button>
+          <button
+            className="btn btn-outline-dark"
+            type="submit"
+            id="geo-button"
+          >
+            Current
+          </button>
+        </form>
+      </div>
+    </nav>
   );
 
   if (load) {
