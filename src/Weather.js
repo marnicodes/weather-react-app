@@ -1,83 +1,64 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export default function Weather(prop) {
-  let [city, setCity] = useState("");
-  let [load, setLoad] = useState(false);
-  let [weather, setWeather] = useState({});
+export default function Weather() {
+  let [ready, setReady] = useState(false); //setReady being false by default
+  const [temperature, setTemperature] = useState(null); //null: not knowing the temperature at the moment
 
-  function displayWeather(response) {
-    setLoad(true);
-    setWeather({
-      date: new Date(response.data.dt * 1000),
-      temperature: response.data.main.temp,
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-    });
+  function handleResponse(response) {
+    console.log(response.data);
+    setTemperature(response.data.main.temp);
+    setReady(true);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    let apiKey = `ff4151e1f397ca52bc01c2b445760854`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  let form = (
-    <nav class="navbar navbar-light">
-      <div class="container-fluid">
-        <form className="d-flex" onSubmit={handleSubmit}>
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search for a city"
-            autoComplete="off"
-            autoFocus="off"
-            id="city-input"
-            onChange={updateCity}
-          />
-          <button
-            className="btn btn-outline-dark"
-            type="submit"
-            id="search-button"
-          >
-            {" "}
-            Search{" "}
-          </button>
-          <button
-            className="btn btn-outline-dark"
-            type="submit"
-            id="geo-button"
-          >
-            Current
-          </button>
-        </form>
-      </div>
-    </nav>
-  );
-
-  if (load) {
+  if (ready) {
+    //ready being "true", will return the information below
     return (
-      <div className="WeatherInfo">
-        {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind speed: {Math.round(weather.wind)} km/h</li>
-          <li>
-            <img src={weather.icon} alt="icon" />
-          </li>
-        </ul>
+      <div class="container-fluid">
+        <nav class="navbar navbar-light">
+          <form className="d-flex">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search for a city"
+              autoComplete="off"
+              autoFocus="off"
+              id="city-input"
+            />
+            <button
+              className="btn btn-outline-dark"
+              type="submit"
+              id="search-button"
+            >
+              {" "}
+              Search{" "}
+            </button>
+            <button
+              className="btn btn-outline-dark"
+              type="submit"
+              id="geo-button"
+            >
+              Current
+            </button>
+          </form>
+        </nav>
+        <h1>Stockholm</h1>
+        <div className="last-updated">Last updated:</div>
+        <div className="container">
+          <div className="row">
+            <div className="col-4">(Icon) </div>
+            <div className="col-4">(Temperature)</div>
+            <div className="col-4">(WeatherDetails)</div>
+          </div>
+        </div>
       </div>
     );
   } else {
-    return form;
+    //else when its loading, is updating the UI
+    const apiKey = "ff4151e1f397ca52bc01c2b445760854";
+    let city = "Stockholm";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return "Loading...";
   }
 }
