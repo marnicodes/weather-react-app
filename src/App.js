@@ -8,7 +8,7 @@ function App(props) {
     <div className="App">
       <div className="box">
         {" "}
-        <Weather />
+        <Weather defaultCity="Stockholm" />
       </div>
       <Footer />
     </div>
