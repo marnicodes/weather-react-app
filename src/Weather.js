@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   let [ready, setReady] = useState(false); //setReady being false by default
@@ -7,10 +8,9 @@ export default function Weather(props) {
   //const [temperature, setTemperature] = useState(null); //null: not knowing the temperature at the moment
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       //ready: true, //formerly setReady(true);
-      date: "Thursday 15.00",
+      date: new Date(response.data.dt * 1000) /*calling the date API*/,
       icon: "https://ssl.gstatic.com/onebox/weather/64/rain_light.png",
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -55,7 +55,10 @@ export default function Weather(props) {
           </form>
         </nav>
         <h1>{weatherData.city}</h1>
-        <div className="last-updated">Last updated:{weatherData.date}</div>
+        <div className="last-updated">
+          <FormattedDate date={weatherData.date} />{" "}
+          {/*sending this data to a new component*/}
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-4">
