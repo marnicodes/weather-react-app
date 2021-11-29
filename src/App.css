@@ -1,80 +1,8 @@
 .App {
-  font-family: sans-serif;
+  margin: 30px auto;
+  max-width: 600px;
 }
 .Footer {
   text-align: center;
-}
-h1,
-p {
-  padding: 0 0 0 10px;
-  margin: 0;
-}
-
-h2 {
-  font-size: 20px;
-  margin-top: auto;
-  margin-top: auto;
-  text-align: left;
-}
-
-div.container {
-  display: block;
-  padding: 0;
-}
-
-img#icon {
-  display: block;
-  float: right;
-}
-
-footer {
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  color: #494747;
-}
-
-#weather-description {
-  float: left;
-}
-
-#geo-button {
-  margin-left: 8px;
-}
-.last-updated {
-  margin-left: 8px;
-  font-weight: bold;
-}
-
-.temperature {
-  font-weight: bold;
-  font-size: 150px;
-}
-.box {
-  border: solid #698796;
-  border-radius: 10px;
-  margin: 0 auto;
-  width: 600px;
-  background: #7799aa;
-}
-
-.weather-forecast {
-  text-align: center;
-}
-
-.main-temp {
-  font-size: 40px;
-}
-.row {
-  text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-.weather-forecast-temp-min {
-  opacity: 60%;
+  font-size: 11px;
 }
