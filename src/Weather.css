@@ -14,12 +14,15 @@
   margin: 0;
 }
 .WeatherInfo .temperature {
-  font-size: 160px;
+  font-size: 120px;
   font-weight: bolder;
 }
 
 .WeatherInfo .current-details {
   text-align: left;
+}
+.WeatherTemperature .unit {
+  font-size: 10px;
 }
 
 div.container {
