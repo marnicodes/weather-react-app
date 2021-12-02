@@ -14,10 +14,12 @@ export default function WeatherInfo(props) {
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={100} />
           </div>
           <div className="col-4">
-            <WeatherTemperature celsius={props.data.temperature} />
+            <div className="clear-fix">
+              <WeatherTemperature celsius={props.data.temperature} />
+            </div>
           </div>
           <div className="col-4">
             <span className="current-details">

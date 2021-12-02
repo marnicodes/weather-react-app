@@ -28,8 +28,8 @@
   display: block;
 }
 .row canvas {
-  margin: 50px auto;
-  float: right;
+  margin: 40px 60px;
+  text-align: right;
 }
 
 .WeatherTemperature {

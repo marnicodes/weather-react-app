@@ -2,6 +2,7 @@ import "./Weather.css";
 import axios from "axios";
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   let [ready, setReady] = useState(false); //setReady being false by default
@@ -17,6 +18,7 @@ export default function Weather(props) {
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       city: response.data.name,
+      coordinates: response.data.coord,
       wind: response.data.wind.speed,
       feel: response.data.main.feels_like,
       description: response.data.weather[0].description,
@@ -43,8 +45,8 @@ export default function Weather(props) {
   if (ready) {
     //ready being "true", will return the information below
     return (
-      <div class="container-fluid">
-        <nav class="navbar navbar-light">
+      <div className="container-fluid">
+        <nav className="navbar navbar-light">
           <form onSubmit={handleSubmit} className="d-flex">
             <input
               className="form-control me-2"
@@ -71,6 +73,7 @@ export default function Weather(props) {
           </form>
         </nav>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
