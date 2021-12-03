@@ -63,13 +63,6 @@ export default function Weather(props) {
               {" "}
               Search{" "}
             </button>
-            <button
-              className="btn btn-outline-dark"
-              type="submit"
-              id="geo-button"
-            >
-              Current
-            </button>
           </form>
         </nav>
         <WeatherInfo data={weatherData} />

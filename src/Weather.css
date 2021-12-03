@@ -13,10 +13,6 @@
   margin: 0;
 }
 
-#geo-button {
-  margin-left: 8px;
-}
-
 .WeatherInfo .temperature {
   font-size: 150px;
   font-weight: bolder;
