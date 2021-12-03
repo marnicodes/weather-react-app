@@ -6,7 +6,7 @@ import WeatherTemperature from "./WeatherTemperature";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1>{props.data.city}</h1>
+      <h1 className="mb-0">{props.data.city}</h1>
       <div className="last-updated">
         <FormattedDate date={props.data.date} />{" "}
         {/*sending this data to a new component*/}

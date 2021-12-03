@@ -4,7 +4,7 @@
 }
 
 .WeatherInfo li {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 19px;
   list-style: none;
 }
@@ -18,7 +18,7 @@
 }
 
 .WeatherInfo .temperature {
-  font-size: 120px;
+  font-size: 150px;
   font-weight: bolder;
 }
 
@@ -37,9 +37,15 @@
   text-align: center;
 }
 .WeatherTemperature .unit {
-  font-size: 10px;
+  font-size: 16px;
 }
-
+.WeatherTemperature a {
+  text-decoration: none;
+  color: black;
+}
+.WeatherTemperature a:hover {
+  color: #686666;
+}
 div.container {
   display: block;
   padding: 0;
@@ -54,6 +60,5 @@ div.container {
   border: solid #698796;
   border-radius: 10px;
   margin: 0 auto;
-
   background: #7799aa;
 }

@@ -14,13 +14,23 @@ export default function WeatherForecast(props) {
 
   if (loaded) {
     //when it is loaded, it should display below
-    console.log(forecast); //this will show data from the response of the state
+    //console.log(forecast); //this will show data from the response of the state
     return (
       <div className="WeatherForecast">
         <div className="row">
-          <div className="col-2">
-            <WeatherForecastDay data={forecast[0]} />
-          </div>
+          {forecast.map(function (dailyForecast, index) {
+            /*to display only 6 days of forecast, using conditioned statement*/
+            if (index < 6) {
+              return (
+                <div className="col-2" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />{" "}
+                  {/*instead of sending the forecast array, it is sending the dailyForecast*/}
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     );
