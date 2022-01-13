@@ -1,9 +1,20 @@
-.App {
-  margin: 30px auto;
-  max-width: 600px;
-  font-family: "Bebas Neue", cursive;
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #5769b8 0%, #c0bdb8 100%);
+}
+.box {
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 375px;
+  font-family: "Apercu";
+  font-weight: bold;
 }
 .Footer {
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
+}
+
+@font-face {
+  font-family: "Apercu";
+  src: url(/src/ApercuPro-Italic.ttf);
 }

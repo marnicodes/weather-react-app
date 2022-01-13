@@ -23,10 +23,10 @@ export default function WeatherForecast(props) {
       <div className="WeatherForecast">
         <div className="row">
           {forecast.map(function (dailyForecast, index) {
-            /*to display only 6 days of forecast, using conditioned statement*/
-            if (index < 6) {
+            /*to display no of days of forecast, using conditioned statement*/
+            if (index < 3) {
               return (
-                <div className="col-2" key={index}>
+                <div className="col-4" key={index}>
                   <WeatherForecastDay data={dailyForecast} />{" "}
                   {/*instead of sending the forecast array, it is sending the dailyForecast*/}
                 </div>

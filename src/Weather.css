@@ -1,39 +1,53 @@
+@font-face {
+  font-family: "Apercu";
+  src: url(/src/ApercuPro-Italic.ttf);
+}
+
 .WeatherInfo ul {
   margin: 0;
   padding: 0;
 }
 
 .WeatherInfo li {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 19px;
   list-style: none;
+  font-family: "Apercu";
 }
 .Weather h1 {
-  padding: 0 0 0 10px;
   margin: 0;
+  font-family: "Apercu";
 }
 
 .WeatherInfo .temperature {
-  font-size: 150px;
+  font-size: 80px;
   font-weight: bolder;
+  font-family: "Apercu";
 }
 
 .WeatherInfo .current-details {
-  text-align: left;
-  margin: 50px auto;
+  text-align: center;
+  margin: 5px auto;
   display: block;
+  opacity: 0.7;
+  font-weight: bold;
+  font-family: "Apercu";
 }
+
 .row canvas {
-  margin: 40px 60px;
-  text-align: right;
+  margin: 20px 35px;
+  text-align: center;
 }
 
 .WeatherTemperature {
   vertical-align: top;
   text-align: center;
+  font-family: "Apercu";
 }
 .WeatherTemperature .unit {
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Apercu";
 }
 .WeatherTemperature a {
   text-decoration: none;
@@ -50,11 +64,6 @@ div.container {
 .WeatherInfo .last-updated {
   margin: 0;
   font-weight: bold;
-}
-
-.box {
-  border: solid #698796;
-  border-radius: 10px;
-  margin: 0 auto;
-  background: #7799aa;
+  padding-bottom: 40px;
+  font-family: "Apercu";
 }

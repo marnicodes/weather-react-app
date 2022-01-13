@@ -13,15 +13,17 @@ export default function WeatherInfo(props) {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-4">
+          <div className="col-md-6">
             <WeatherIcon code={props.data.icon} size={100} />
           </div>
-          <div className="col-4">
-            <div className="clear-fix">
+          <div className="col-md-6">
+            <div class="WeatherTemperature">
               <WeatherTemperature celsius={props.data.temperature} />
             </div>
           </div>
-          <div className="col-4">
+        </div>
+        <div class="row">
+          <div className="col">
             <span className="current-details">
               <ul>
                 <li>Wind {Math.round(props.data.wind)}m/s</li>
