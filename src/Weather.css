@@ -3,6 +3,10 @@
   src: url(/src/ApercuPro-Italic.ttf);
 }
 
+.navbar {
+  margin-top: 15px;
+}
+
 .WeatherInfo ul {
   margin: 0;
   padding: 0;
